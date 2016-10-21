@@ -25,5 +25,6 @@ public class Display extends JPanel {
 		for (int y=0;y<720;y+=32) {
 			g.drawLine(0, y, 1280, y);
 		}
+		Game.p.draw(g);
 	}
 }

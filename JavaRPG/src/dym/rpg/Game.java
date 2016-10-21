@@ -2,11 +2,16 @@ package dym.rpg;
 
 import javax.swing.JFrame;
 
+import dym.rpg.entities.player.Player;
+import dym.rpg.physics.Vector2;
+
 public class Game extends JFrame {
 	private static final long serialVersionUID = 665457190433165744L;
 	private static Display d;
 	private static Input i;
 
+	public static Player p;
+	
 	public static Game g;
 	
 	public Game() {
@@ -19,6 +24,7 @@ public class Game extends JFrame {
 		this.addKeyListener(i);
 		i = new Input();
 		d = new Display();
+		p = new Player(new Vector2(64,64));
 		this.setContentPane(d);
 		this.addKeyListener(i);
 		pack();
@@ -30,6 +36,7 @@ public class Game extends JFrame {
 	}
 	public static void loop() {
 		try {
+			p.update();
 			d.repaint();
 			//System.out.println("Keys: "+Input.keysDown);
 			Thread.sleep(15);
