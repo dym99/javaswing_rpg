@@ -6,6 +6,8 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
+import dym.rpg.physics.Collision;
+
 
 public class Display extends JPanel {
 	
@@ -16,14 +18,18 @@ public class Display extends JPanel {
 	}
 	
 	public void paintComponent(Graphics g) {
-		g.setColor(Color.BLACK);
+		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, 1280, 720);
 		g.setColor(Color.GREEN);
-		for (int x=0;x<1280;x+=32) {
+		for (int x=0;x<1280;x+=16) {
 			g.drawLine(x, 0, x, 720);	
 		}
-		for (int y=0;y<720;y+=32) {
+		for (int y=0;y<720;y+=16) {
 			g.drawLine(0, y, 1280, y);
+		}
+		g.setColor(Color.RED);
+		for (Collision c : Game.cmap.collisions) {
+			g.drawRect(c.x, c.y, 16, 16);
 		}
 		Game.p.draw(g);
 	}

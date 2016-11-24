@@ -13,7 +13,9 @@ public class Image {
 	public Image(File file) {
 		try {
 			img = ImageIO.read(file);
-		} catch (IOException e) {}
+		} catch (IOException e) {
+			System.err.println("Failed to load image: " + file.getPath());
+		}
 	}
 	public void draw(Graphics g, int x, int y) {
 		g.setColor(Color.WHITE);
