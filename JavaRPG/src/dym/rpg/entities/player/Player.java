@@ -11,6 +11,9 @@ import dym.rpg.entities.Entity;
 import dym.rpg.physics.CollisionMap;
 import dym.rpg.physics.CollisionMap.CollisionType;
 import dym.rpg.physics.Vector2;
+import dym.rpg.scene.SceneManager;
+import dym.rpg.sound.Sound;
+import dym.rpg.sound.SoundMixer;
 
 public class Player extends Entity {
 	double xspeed,yspeed;
@@ -29,13 +32,24 @@ public class Player extends Entity {
 		
 		//Only continue if player is aligned with grid//
 		if (!(pos.x%16==0 && pos.y%16==0)) return;
-		
 		xspeed=0;
 		yspeed=0;
 		int speed = 1;
 		if (Input.keysDown.contains(KeyEvent.VK_Z)) {
 			speed=2;
 		}
+		if (Input.keysDown.contains(KeyEvent.VK_X)) {
+			//System.err.println("Current music position: "+SoundMixer.music.getFramePosition());
+			Game.testSFX.play();
+			if (SceneManager.currentScene==SceneManager.testScene1) {
+				SceneManager.currentScene=SceneManager.testScene2;
+			}
+			else {
+				SceneManager.currentScene=SceneManager.testScene1;
+			}
+			Input.keysDown.remove((Object)KeyEvent.VK_X);
+		}
+	
 		if (Input.axisState == AxisState.VERTICAL) {
 			if (Input.keysDown.contains(KeyEvent.VK_UP)) {
 				yspeed-=speed;
@@ -64,7 +78,7 @@ public class Player extends Entity {
 		if (xspeed < 0) {
 			Game.charSprite = Game.sprCharL;
 		}
-		if (pathCheck(Game.cmap)!=CollisionType.NONE) {xspeed=0; yspeed=0;}
+		if (pathCheck(SceneManager.currentScene.collisionMap)!=CollisionType.NONE) {xspeed=0; yspeed=0;}
 	}
 	public CollisionType pathCheck(CollisionMap cMap) {
 		if (xspeed>0) {

@@ -3,6 +3,9 @@ package dym.rpg.graphics;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import dym.rpg.Game;
+import dym.rpg.sound.SoundMixer;
+
 public abstract class Sprite {
 	Image[] images;
 	protected double fps;
@@ -19,6 +22,7 @@ public abstract class Sprite {
 			currentimage++;
 			if (currentimage>=images.length) {
 				currentimage=0;
+
 			}
 		}
 	}

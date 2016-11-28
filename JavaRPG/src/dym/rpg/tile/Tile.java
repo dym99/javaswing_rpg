@@ -7,7 +7,7 @@ import dym.rpg.entities.Entity;
 import dym.rpg.graphics.Image;
 import dym.rpg.physics.Vector2;
 
-public abstract class Tile extends Entity {
+public class Tile extends Entity {
 	private Image image;
 	public Tile(Vector2 pos, Image image) {
 		super(pos);
