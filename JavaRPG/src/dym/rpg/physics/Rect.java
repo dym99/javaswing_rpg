@@ -22,6 +22,11 @@ public class Rect {
 		}
 		return false;
 	}
+	public boolean collidePoint(Vector2 vec) {
+		if (vec.x>x&&vec.x<x+w&&vec.y>y&&vec.y<y+h)
+			return true;
+		return false;
+	}
 	public Vector2 getBottom() {
 		return new Vector2(x+(w/2),y+h);
 	}

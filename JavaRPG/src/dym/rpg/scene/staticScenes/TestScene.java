@@ -1,5 +1,6 @@
 package dym.rpg.scene.staticScenes;
 
+import dym.rpg.entities.TestClick;
 import dym.rpg.physics.Collision;
 import dym.rpg.physics.CollisionMap.CollisionType;
 import dym.rpg.physics.Vector2;
@@ -113,5 +114,10 @@ public class TestScene extends Scene {
 		tileMap.backTiles.add(new Tile(new Vector2(64,96), Tiles.tile_grass1));
 		tileMap.backTiles.add(new Tile(new Vector2(80,96), Tiles.tile_grass1));
 		tileMap.backTiles.add(new Tile(new Vector2(96,96), Tiles.tile_grass1));
+		
+		///
+		///Entities
+		///
+		entities.add(new TestClick(new Vector2(0,0)));
 	}
 }

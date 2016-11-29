@@ -51,9 +51,10 @@ public class Game extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		this.setVisible(true);
-		this.addKeyListener(i);
 		i = new Input();
+		this.addKeyListener(i);
 		d = new Display();
+		d.addMouseListener(i);
 		p = new Player(new Vector2(64,64));
 		this.add(d,BorderLayout.CENTER);
 		this.addKeyListener(i);
@@ -75,13 +76,16 @@ public class Game extends JFrame {
 	}
 	public static void loop() {
 		try {
+			if (!SceneManager.currentScene.menuScene) {
 			p.update();
 			if (p.isMoving())
 				charSprite.animate();
 			else
 				charSprite.resetAnim();
+			}
 			d.repaint();
 			//System.out.println("Keys: "+Input.keysDown);
+			
 			Thread.sleep(1000/60);
 		} catch (InterruptedException e) 
 		{e.printStackTrace();}

@@ -34,6 +34,7 @@ public class Display extends JPanel {
 //		for (Collision c : SceneManager.currentScene.collisionMap.collisions) {
 //			g.drawRect(c.x, c.y, 16, 16);
 //		}
-		Game.p.draw(g);
+		if (!SceneManager.currentScene.menuScene)
+				Game.p.draw(g);
 	}
 }
