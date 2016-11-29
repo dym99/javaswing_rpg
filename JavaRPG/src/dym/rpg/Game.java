@@ -17,12 +17,12 @@ import dym.rpg.physics.Vector2;
 import dym.rpg.scene.SceneManager;
 import dym.rpg.sound.Sound;
 import dym.rpg.sound.SoundMixer;
-import dym.rpg.sound.staticSounds.TestMusic;
-import dym.rpg.sound.staticSounds.TestSFX;
+//import dym.rpg.sound.staticSounds.TestMusic;
+//import dym.rpg.sound.staticSounds.TestSFX;
 
 public class Game extends JFrame {
 	private static final long serialVersionUID = 665457190433165744L;
-	private static Display d;
+	public static Display d;
 	private static Input i;
 	public static Player p;
 
@@ -33,8 +33,8 @@ public class Game extends JFrame {
 	public static SprCharL sprCharL = new SprCharL();
 	public static SprCharR sprCharR = new SprCharR();
 	
-	public static TestMusic testMusic;
-	public static TestSFX testSFX;
+	//public static TestMusic testMusic;
+	//public static TestSFX testSFX;
 	
 	public static Sprite charSprite = sprCharD;
 	public static Game g;
@@ -42,22 +42,23 @@ public class Game extends JFrame {
 	public Game() {
 		super("Game");
 		SoundMixer.init();
-		testMusic = new TestMusic();
-		testSFX = new TestSFX();
-		SoundMixer.playMusic(testMusic);
-		this.setSize(1280,720);
-		this.setResizable(false);
+		//testMusic = new TestMusic();
+		//testSFX = new TestSFX();
+		//SoundMixer.playMusic(testMusic);
+		this.setSize(320,240);
+		this.setResizable(true);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		this.setVisible(true);
 		i = new Input();
 		this.addKeyListener(i);
-		d = new Display();
+		d = new Display(this);
 		d.addMouseListener(i);
 		p = new Player(new Vector2(64,64));
 		this.add(d,BorderLayout.CENTER);
 		this.addKeyListener(i);
+		validate();
 		while (true) {
 			loop();
 		}
@@ -67,7 +68,6 @@ public class Game extends JFrame {
 	}
 	public static void menuLoop() {
 		try {
-			
 			d.repaint();
 			//System.out.println("Keys: "+Input.keysDown);
 			Thread.sleep(1000/60);

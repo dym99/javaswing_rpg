@@ -13,14 +13,26 @@ import dym.rpg.scene.SceneManager;
 public class Display extends JPanel {
 	
 	private static final long serialVersionUID = -1960615037265171080L;
-	
-	public Display() {
-		this.setPreferredSize(new Dimension(1280,720));
+	public static final int WIDTH = 320, HEIGHT = 240;
+	Game game;
+	public Display(Game g) {
+		game = g;
 	}
-	
+	public double ScaleCoordinateX(double x) {
+		if (x>=0)
+			return Math.max(game.getWidth()*x/WIDTH,x);
+		else
+			return Math.min(game.getWidth()*x/WIDTH,x);
+	}
+	public double ScaleCoordinateY(double y) {
+		if (y>=0)
+			return Math.max(game.getHeight()*y/HEIGHT,y);
+		else
+			return Math.min(game.getHeight()*y/HEIGHT,y);
+	}
 	public void paintComponent(Graphics g) {
-		g.setColor(Color.WHITE);
-		g.fillRect(0, 0, 1280, 720);
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, game.getWidth(), game.getHeight());
 		
 		SceneManager.currentScene.tileMap.drawTiles(g);
 //		g.setColor(Color.GREEN);
