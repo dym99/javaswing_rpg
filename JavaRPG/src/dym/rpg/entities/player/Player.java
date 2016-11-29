@@ -39,8 +39,8 @@ public class Player extends Entity {
 			speed=2;
 		}
 		if (Input.keysDown.contains(KeyEvent.VK_X)) {
-			//System.err.println("Current music position: "+SoundMixer.music.getFramePosition());
-			Game.testSFX.play();
+			System.err.println("Current music position: "+SoundMixer.music.getFramePosition());
+			//Game.testSFX.play();
 			if (SceneManager.currentScene==SceneManager.testScene1) {
 				SceneManager.currentScene=SceneManager.testScene2;
 			}

@@ -8,7 +8,7 @@ public class TestMusic extends Sound {
 
 	public TestMusic() {
 		super("res"+File.separator+"sound"+File.separator+"test.wav");
-		this.getClip().setLoopPoints(353715, 2471396);
+		this.getClip().setLoopPoints(50, 3000000);
 	}
 
 }

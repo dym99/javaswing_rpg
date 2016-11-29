@@ -1,5 +1,6 @@
 package dym.rpg.scene;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 import dym.rpg.entities.Entity;
@@ -20,5 +21,16 @@ public abstract class Scene {
 	public Scene(boolean menuScene) {
 		this();
 		this.menuScene = menuScene;
+	}
+	public void update() {
+		for (Entity e : entities) {
+			e.update();
+		}
+	}
+	public void draw(Graphics g) {
+		tileMap.drawTiles(g);
+		for (Entity e : entities) {
+			e.draw(g);
+		}
 	}
 }

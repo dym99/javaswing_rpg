@@ -16,13 +16,13 @@ public class Display extends JPanel {
 	
 	public Display() {
 		this.setPreferredSize(new Dimension(1280,720));
+		
 	}
 	
 	public void paintComponent(Graphics g) {
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, 1280, 720);
 		
-		SceneManager.currentScene.tileMap.drawTiles(g);
 //		g.setColor(Color.GREEN);
 //		for (int x=0;x<1280;x+=16) {
 //			g.drawLine(x, 0, x, 720);	
@@ -34,6 +34,7 @@ public class Display extends JPanel {
 //		for (Collision c : SceneManager.currentScene.collisionMap.collisions) {
 //			g.drawRect(c.x, c.y, 16, 16);
 //		}
-		Game.p.draw(g);
+		SceneManager.currentScene.draw(g);
+		if (!SceneManager.currentScene.menuScene) Game.p.draw(g);
 	}
 }
