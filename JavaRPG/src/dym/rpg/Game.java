@@ -9,14 +9,17 @@ import java.io.File;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import dym.rpg.entities.player.Menu;
 import dym.rpg.entities.player.Player;
 import dym.rpg.graphics.Image;
 import dym.rpg.graphics.Sprite;
 import dym.rpg.graphics.staticImages.UIMenu;
+import dym.rpg.graphics.staticImages.UIMenuPartyButton;
 import dym.rpg.graphics.staticSprites.SprCharD;
 import dym.rpg.graphics.staticSprites.SprCharL;
 import dym.rpg.graphics.staticSprites.SprCharR;
 import dym.rpg.graphics.staticSprites.SprCharU;
+import dym.rpg.graphics.staticSprites.UIArrow;
 import dym.rpg.physics.Vector2;
 import dym.rpg.scene.SceneManager;
 import dym.rpg.sound.SoundMixer;
@@ -36,8 +39,10 @@ public class Game extends JFrame {
 	public static SprCharL sprCharL = new SprCharL();
 	public static SprCharR sprCharR = new SprCharR();
 	
-	
+	public static Menu menu = new Menu();
 	public static UIMenu uiMenu = new UIMenu(); 
+	public static UIMenuPartyButton uiMenuParty = new UIMenuPartyButton(); 
+	public static UIArrow uiMenuArrow = new UIArrow(); 
 	//public static TestMusic testMusic;
 	//public static TestSFX testSFX;
 	
@@ -85,14 +90,7 @@ public class Game extends JFrame {
 	public static void main(String args[]) {
 		g = new Game();
 	}
-	public static void menuLoop() {
-		try {
-			d.repaint();
-			//System.out.println("Keys: "+Input.keysDown);
-			Thread.sleep(1000/60);
-		} catch (InterruptedException e) 
-		{e.printStackTrace();}
-	}
+	
 	public static void loop() {
 		try {
 			if (!SceneManager.currentScene.menuScene) {

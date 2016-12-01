@@ -32,7 +32,7 @@ public class Player extends Entity {
 	public void update() {
 		if (menu) {
 			//Do menu things
-			
+			Game.menu.update();
 			//
 			if (Input.keysDown.contains(KeyEvent.VK_C)) {
 				//Close Menu
@@ -46,6 +46,8 @@ public class Player extends Entity {
 				menu = false;
 				Input.keysDown.remove((Object)KeyEvent.VK_ESCAPE);
 			}
+		} else {
+			Game.menu.resetSelection();
 		}
 		if (busy) return;
 		

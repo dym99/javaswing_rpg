@@ -50,7 +50,7 @@ public class Display extends JPanel {
 		if (!SceneManager.currentScene.menuScene)
 			Game.p.draw(g);
 		if (Game.p.menu) {
-			Game.uiMenu.draw(g, 0, 0);
+			Game.menu.draw(g);
 		}
 	}
 }
