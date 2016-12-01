@@ -1,5 +1,9 @@
 package dym.rpg.scene.staticScenes;
 
+/*import dym.rpg.entities.Entity;
+import dym.rpg.entities.menu.Button;
+import dym.rpg.graphics.Image;
+*/
 import dym.rpg.physics.Collision;
 import dym.rpg.physics.Vector2;
 import dym.rpg.physics.CollisionMap.CollisionType;
@@ -8,7 +12,11 @@ import dym.rpg.tile.Tile;
 import dym.rpg.tile.Tiles;
 
 public class TestScene2 extends Scene {
+	//public static Image esc = new Image(new File("res"+File.separator+"butt"+File.separator+"esc.png"));
 	public TestScene2() {
+		/*super(true);
+		entities.add(new Button());
+		*/
 		///
 		///Collisions
 		///
@@ -114,4 +122,8 @@ public class TestScene2 extends Scene {
 		
 		tileMap.backTiles.add(new Tile(new Vector2(112,48), Tiles.tile_grass1));
 	}
+	
 }
+/*
+Christ, that's a lot of collisions...
+*/

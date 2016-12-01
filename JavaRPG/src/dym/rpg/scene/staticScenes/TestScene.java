@@ -115,3 +115,7 @@ public class TestScene extends Scene {
 		tileMap.backTiles.add(new Tile(new Vector2(96,96), Tiles.tile_grass1));
 	}
 }
+
+/*
+Christ, that's a lot of collisions...
+*/
