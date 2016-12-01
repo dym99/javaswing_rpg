@@ -1,21 +1,24 @@
 package dym.rpg;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.io.File;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import dym.rpg.entities.player.Player;
 import dym.rpg.graphics.Image;
 import dym.rpg.graphics.Sprite;
+import dym.rpg.graphics.staticImages.UIMenu;
 import dym.rpg.graphics.staticSprites.SprCharD;
 import dym.rpg.graphics.staticSprites.SprCharL;
 import dym.rpg.graphics.staticSprites.SprCharR;
 import dym.rpg.graphics.staticSprites.SprCharU;
-import dym.rpg.maps.TestMap;
 import dym.rpg.physics.Vector2;
 import dym.rpg.scene.SceneManager;
-import dym.rpg.sound.Sound;
 import dym.rpg.sound.SoundMixer;
 //import dym.rpg.sound.staticSounds.TestMusic;
 //import dym.rpg.sound.staticSounds.TestSFX;
@@ -33,31 +36,47 @@ public class Game extends JFrame {
 	public static SprCharL sprCharL = new SprCharL();
 	public static SprCharR sprCharR = new SprCharR();
 	
+	
+	public static UIMenu uiMenu = new UIMenu(); 
 	//public static TestMusic testMusic;
 	//public static TestSFX testSFX;
 	
 	public static Sprite charSprite = sprCharD;
 	public static Game g;
-	
+	public JPanel content;
 	public Game() {
 		super("Game");
 		SoundMixer.init();
+		this.setBackground(Color.BLACK);
+		
 		//testMusic = new TestMusic();
 		//testSFX = new TestSFX();
 		//SoundMixer.playMusic(testMusic);
-		this.setSize(320,240);
-		this.setResizable(true);
+		//this.setSize(1280,960);
+		this.setExtendedState(MAXIMIZED_BOTH);
+		this.setUndecorated(true);
+		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
-		this.setVisible(true);
+		content = new JPanel() {
+			private static final long serialVersionUID = 2914100608897241233L;
+			@Override
+			public void paintComponent(Graphics g) {
+				g.setColor(Color.BLACK);
+				g.fillRect(0, 0, getWidth(), getHeight());
+			}
+		};
+		content.setLayout(new GridBagLayout());
 		i = new Input();
 		this.addKeyListener(i);
 		d = new Display(this);
 		d.addMouseListener(i);
 		p = new Player(new Vector2(64,64));
-		this.add(d,BorderLayout.CENTER);
+		this.setLayout(new GridLayout(1,1));
 		this.addKeyListener(i);
+		this.setContentPane(content);
+		this.add(d);
+		this.setVisible(true);
 		validate();
 		while (true) {
 			loop();
@@ -78,10 +97,6 @@ public class Game extends JFrame {
 		try {
 			if (!SceneManager.currentScene.menuScene) {
 			p.update();
-			if (p.isMoving())
-				charSprite.animate();
-			else
-				charSprite.resetAnim();
 			}
 			d.repaint();
 			//System.out.println("Keys: "+Input.keysDown);

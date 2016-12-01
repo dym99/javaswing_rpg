@@ -17,9 +17,12 @@ import dym.rpg.sound.SoundMixer;
 
 public class Player extends Entity {
 	double xspeed,yspeed;
+	public boolean busy, menu;
 	public Player(Vector2 vec) {
 		super(vec);
 		xspeed=0;yspeed=0;
+		busy = false;
+		menu = false;
 	}
 	public boolean isMoving() 
 	{
@@ -27,9 +30,44 @@ public class Player extends Entity {
 	}
 	@Override
 	public void update() {
+		if (menu) {
+			//Do menu things
+			
+			//
+			if (Input.keysDown.contains(KeyEvent.VK_C)) {
+				//Close Menu
+				busy = false;
+				menu = false;
+				Input.keysDown.remove((Object)KeyEvent.VK_C);
+			}
+			if (Input.keysDown.contains(KeyEvent.VK_ESCAPE)) {
+				//Close Menu
+				busy = false;
+				menu = false;
+				Input.keysDown.remove((Object)KeyEvent.VK_ESCAPE);
+			}
+		}
+		if (busy) return;
+		
 		pos.x+=xspeed;
 		pos.y+=yspeed;
+		if (isMoving())
+			Game.charSprite.animate();
+		else
+			Game.charSprite.resetAnim();
 		
+		if (Input.keysDown.contains(KeyEvent.VK_C)) {
+			//System.err.println("Current music position: "+SoundMixer.music.getFramePosition());
+			//Game.testSFX.play();
+			busy = true;
+			menu = true;
+			Input.keysDown.remove((Object)KeyEvent.VK_C);
+		}
+		if (Input.keysDown.contains(KeyEvent.VK_ESCAPE)) {
+			busy = true;
+			menu = true;
+			Input.keysDown.remove((Object)KeyEvent.VK_ESCAPE);
+		}
 		//Only continue if player is aligned with grid//
 		if (!(pos.x%16==0 && pos.y%16==0)) return;
 		xspeed=0;
