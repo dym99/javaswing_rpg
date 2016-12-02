@@ -13,6 +13,7 @@ import dym.rpg.scene.SceneManager;
 public class Input implements KeyListener, MouseListener{
 	public static ArrayList<Integer> keysDown;
 	public static ArrayList<Integer> mouseDown;
+	
 	public enum AxisState {
 		NONE,
 		HORIZONTAL,

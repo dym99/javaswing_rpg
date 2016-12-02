@@ -6,6 +6,7 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
+import dym.rpg.entities.Entity;
 import dym.rpg.scene.SceneManager;
 
 
@@ -13,18 +14,23 @@ public class Display extends JPanel {
 	
 	private static final long serialVersionUID = -1960615037265171080L;
 	public static final int WIDTH = 320, HEIGHT = 240;
+	public static int width = 1280, height = 960;
 	Game game;
 	public Display(Game g) {
 		game = g;
 	}
 	public double ScaleCoordinateX(double x) {
-		return (this.getWidth()*x/WIDTH)-1;
+		if (width>320)
+			return (this.getWidth()*x/WIDTH)-1;
+		return (this.getWidth()*x/WIDTH);
 	}
 	public double ScaleCoordinateY(double y) {
-		return (this.getHeight()*y/HEIGHT)-1;
+		if (height>240)
+			return (this.getHeight()*y/HEIGHT)-1;
+		return (this.getHeight()*y/HEIGHT);
 	}
 	public void paintComponent(Graphics g) {
-		setSize(new Dimension(1280,960));
+		setSize(new Dimension(width,height));
 		if (this.getWidth()>1280 || this.getHeight()>960) {
 			this.setSize(new Dimension(1280, 960));
 		}
@@ -36,6 +42,9 @@ public class Display extends JPanel {
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 		
 		SceneManager.currentScene.tileMap.drawTiles(g);
+		for (Entity e : SceneManager.currentScene.entities) {
+			e.draw(g);
+		}
 //		g.setColor(Color.GREEN);
 //		for (int x=0;x<1280;x+=16) {
 //			g.drawLine(x, 0, x, 720);	
@@ -52,5 +61,6 @@ public class Display extends JPanel {
 		if (Game.p.menu) {
 			Game.menu.draw(g);
 		}
+		
 	}
 }

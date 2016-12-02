@@ -32,6 +32,10 @@ public abstract class Sprite {
 	}
 	public void draw(Graphics g, int x, int y) {
 		g.setColor(Color.WHITE);
-		images[currentimage].draw(g, x, y, true);
+		images[currentimage].draw(g, x, y);
+	}
+	public void drawUI(Graphics g, int x, int y) {
+		g.setColor(Color.WHITE);
+		images[currentimage].drawUI(g, x, y);
 	}
 }

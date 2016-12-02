@@ -21,11 +21,14 @@ public class Image {
 	}
 	public void draw(Graphics g, int x, int y) {
 		g.setColor(Color.WHITE);
+		g.drawImage(img, (int)(Game.d.ScaleCoordinateX(x+0.5-Game.camera.x)), (int)(Game.d.ScaleCoordinateY(y+0.5-Game.camera.y)), (int)(Game.d.ScaleCoordinateX(img.getWidth()+0.5)), (int)(Game.d.ScaleCoordinateY(img.getHeight()+0.5)) ,null);
+	}
+	public void drawUI(Graphics g, int x, int y) {
+		g.setColor(Color.WHITE);
 		g.drawImage(img, (int)(Game.d.ScaleCoordinateX(x+0.5)), (int)(Game.d.ScaleCoordinateY(y+0.5)), (int)(Game.d.ScaleCoordinateX(img.getWidth()+0.5)), (int)(Game.d.ScaleCoordinateY(img.getHeight()+0.5)) ,null);
 	}
 	public void draw(Graphics g, int x, int y, boolean debug) {
-		g.setColor(Color.WHITE);
-		g.drawImage(img, (int)(Game.d.ScaleCoordinateX(x+0.5)), (int)(Game.d.ScaleCoordinateY(y+0.5)), (int)(Game.d.ScaleCoordinateX(img.getWidth()+0.5)), (int)(Game.d.ScaleCoordinateY(img.getHeight()+0.5)) ,null);
-		if (debug) System.err.println(Game.d.ScaleCoordinateX(x+0.5)+", "+Game.d.ScaleCoordinateY(y+0.5));
+		draw(g,x,y);
+		//if (debug) System.err.println(Game.d.ScaleCoordinateX(x+0.5)+", "+Game.d.ScaleCoordinateY(y+0.5));
 	}
 }

@@ -53,6 +53,8 @@ public class Player extends Entity {
 		
 		pos.x+=xspeed;
 		pos.y+=yspeed;
+		bbox.x=pos.x;
+		bbox.y=pos.y;
 		if (isMoving())
 			Game.charSprite.animate();
 		else
@@ -82,10 +84,10 @@ public class Player extends Entity {
 			//System.err.println("Current music position: "+SoundMixer.music.getFramePosition());
 			//Game.testSFX.play();
 			if (SceneManager.currentScene==SceneManager.testScene1) {
-				SceneManager.currentScene=SceneManager.testScene2;
+				SceneManager.gotoScene(SceneManager.testScene2);
 			}
 			else {
-				SceneManager.currentScene=SceneManager.testScene1;
+				SceneManager.gotoScene(SceneManager.testScene1);
 			}
 			Input.keysDown.remove((Object)KeyEvent.VK_X);
 		}

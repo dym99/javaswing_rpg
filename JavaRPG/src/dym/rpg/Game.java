@@ -9,12 +9,15 @@ import java.io.File;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import dym.rpg.entities.Entity;
 import dym.rpg.entities.player.Menu;
 import dym.rpg.entities.player.Player;
 import dym.rpg.graphics.Image;
 import dym.rpg.graphics.Sprite;
 import dym.rpg.graphics.staticImages.UIMenu;
+import dym.rpg.graphics.staticImages.UIMenuInventoryButton;
 import dym.rpg.graphics.staticImages.UIMenuPartyButton;
+import dym.rpg.graphics.staticImages.UIMenuSettingsButton;
 import dym.rpg.graphics.staticSprites.SprCharD;
 import dym.rpg.graphics.staticSprites.SprCharL;
 import dym.rpg.graphics.staticSprites.SprCharR;
@@ -39,9 +42,13 @@ public class Game extends JFrame {
 	public static SprCharL sprCharL = new SprCharL();
 	public static SprCharR sprCharR = new SprCharR();
 	
+	public static Vector2 camera = new Vector2();
+	
 	public static Menu menu = new Menu();
 	public static UIMenu uiMenu = new UIMenu(); 
 	public static UIMenuPartyButton uiMenuParty = new UIMenuPartyButton(); 
+	public static UIMenuInventoryButton uiMenuInventory = new UIMenuInventoryButton(); 
+	public static UIMenuSettingsButton uiMenuSettings = new UIMenuSettingsButton(); 
 	public static UIArrow uiMenuArrow = new UIArrow(); 
 	//public static TestMusic testMusic;
 	//public static TestSFX testSFX;
@@ -94,7 +101,12 @@ public class Game extends JFrame {
 	public static void loop() {
 		try {
 			if (!SceneManager.currentScene.menuScene) {
-			p.update();
+				camera.x = p.bbox.x-160+8;
+				camera.y = p.bbox.y-120+8;
+				p.update();
+			}
+			for (Entity e : SceneManager.currentScene.entities) {
+				e.update();
 			}
 			d.repaint();
 			//System.out.println("Keys: "+Input.keysDown);
