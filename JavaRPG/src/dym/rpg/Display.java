@@ -26,7 +26,7 @@ public class Display extends JPanel {
 	}
 	public double ScaleCoordinateY(double y) {
 		if (height>240)
-			return (this.getHeight()*y/HEIGHT)-1;
+			return (this.getHeight()*y/HEIGHT)-1 ;
 		return (this.getHeight()*y/HEIGHT);
 	}
 	public void paintComponent(Graphics g) {
@@ -45,21 +45,14 @@ public class Display extends JPanel {
 		for (Entity e : SceneManager.currentScene.entities) {
 			e.draw(g);
 		}
-//		g.setColor(Color.GREEN);
-//		for (int x=0;x<1280;x+=16) {
-//			g.drawLine(x, 0, x, 720);	
-//		}
-//		for (int y=0;y<720;y+=16) {
-//			g.drawLine(0, y, 1280, y);
-//		}
-//		g.setColor(Color.RED);
-//		for (Collision c : SceneManager.currentScene.collisionMap.collisions) {
-//			g.drawRect(c.x, c.y, 16, 16);
-//		}
+
 		if (!SceneManager.currentScene.menuScene)
 			Game.p.draw(g);
 		if (Game.p.menu) {
 			Game.menu.draw(g);
+		}
+		if (MessageHandler.busy) {
+			MessageHandler.draw(g);
 		}
 		
 	}

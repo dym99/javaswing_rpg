@@ -7,13 +7,12 @@ import java.awt.event.KeyEvent;
 import dym.rpg.Game;
 import dym.rpg.Input;
 import dym.rpg.Input.AxisState;
+import dym.rpg.MessageHandler;
 import dym.rpg.entities.Entity;
 import dym.rpg.physics.CollisionMap;
 import dym.rpg.physics.CollisionMap.CollisionType;
 import dym.rpg.physics.Vector2;
 import dym.rpg.scene.SceneManager;
-import dym.rpg.sound.Sound;
-import dym.rpg.sound.SoundMixer;
 
 public class Player extends Entity {
 	double xspeed,yspeed;
@@ -78,7 +77,8 @@ public class Player extends Entity {
 		yspeed=0;
 		int speed = 1;
 		if (Input.keysDown.contains(KeyEvent.VK_Z)) {
-			speed=2;
+			MessageHandler.addMessage("You have pressed Z, the\nmessage testing keybind.");
+			Input.keysDown.remove((Object)KeyEvent.VK_Z);
 		}
 		if (Input.keysDown.contains(KeyEvent.VK_X)) {
 			//System.err.println("Current music position: "+SoundMixer.music.getFramePosition());
