@@ -60,6 +60,7 @@ public class MessageHandler {
 				row++;
 			}
 		}
+		if (visibleMessage.length()<currentMessage.length()) {animating = true;} else {animating=false;}
 		if (!animating) Game.uiXButton.drawUI(g, 320-26, 240-26);
 	}
 }

@@ -48,7 +48,7 @@ public class Player extends Entity {
 		} else {
 			Game.menu.resetSelection();
 		}
-		if (busy) return;
+		if (busy||menu) return;
 		
 		pos.x+=xspeed;
 		pos.y+=yspeed;
@@ -78,6 +78,7 @@ public class Player extends Entity {
 		int speed = 1;
 		if (Input.keysDown.contains(KeyEvent.VK_Z)) {
 			MessageHandler.addMessage("You have pressed Z, the\nmessage testing keybind.");
+			MessageHandler.addMessage("Whilst this may be obvious,\nthis is just a test.");
 			Input.keysDown.remove((Object)KeyEvent.VK_Z);
 		}
 		if (Input.keysDown.contains(KeyEvent.VK_X)) {
