@@ -13,6 +13,7 @@ import dym.rpg.physics.CollisionMap;
 import dym.rpg.physics.CollisionMap.CollisionType;
 import dym.rpg.physics.Vector2;
 import dym.rpg.scene.SceneManager;
+import dym.rpg.sound.SoundMixer;
 
 public class Player extends Entity {
 	double xspeed,yspeed;
@@ -60,16 +61,14 @@ public class Player extends Entity {
 			Game.charSprite.resetAnim();
 		
 		if (Input.keysDown.contains(KeyEvent.VK_C)) {
-			//System.err.println("Current music position: "+SoundMixer.music.getFramePosition());
-			//Game.testSFX.play();
+			//Open the menu;
 			busy = true;
 			menu = true;
 			Input.keysDown.remove((Object)KeyEvent.VK_C);
 		}
-		if (Input.keysDown.contains(KeyEvent.VK_ESCAPE)) {
-			busy = true;
-			menu = true;
-			Input.keysDown.remove((Object)KeyEvent.VK_ESCAPE);
+		if (Input.keysDown.contains(KeyEvent.VK_P)) {
+			System.err.println("Current music position: "+SoundMixer.music.getFramePosition());
+			Input.keysDown.remove((Object)KeyEvent.VK_P);
 		}
 		//Only continue if player is aligned with grid//
 		if (!(pos.x%16==0 && pos.y%16==0)) return;
@@ -77,19 +76,14 @@ public class Player extends Entity {
 		yspeed=0;
 		int speed = 1;
 		if (Input.keysDown.contains(KeyEvent.VK_Z)) {
+			//Test the message box.
 			MessageHandler.addMessage("You have pressed Z, the\nmessage testing keybind.");
 			MessageHandler.addMessage("Whilst this may be obvious,\nthis is just a test.");
 			Input.keysDown.remove((Object)KeyEvent.VK_Z);
 		}
 		if (Input.keysDown.contains(KeyEvent.VK_X)) {
-			//System.err.println("Current music position: "+SoundMixer.music.getFramePosition());
-			//Game.testSFX.play();
-			if (SceneManager.currentScene==SceneManager.testScene1) {
-				SceneManager.gotoScene(SceneManager.testScene2);
-			}
-			else {
-				SceneManager.gotoScene(SceneManager.testScene1);
-			}
+			//Interact with an entity in the direction you are facing.
+			
 			Input.keysDown.remove((Object)KeyEvent.VK_X);
 		}
 	

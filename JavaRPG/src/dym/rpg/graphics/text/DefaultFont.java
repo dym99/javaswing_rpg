@@ -52,12 +52,10 @@ public class DefaultFont {
 		images.put('-', new Image(new File("res"+File.separator+"font"+File.separator+"-.png")));
 		images.put(';', new Image(new File("res"+File.separator+"font"+File.separator+";.png")));
 		images.put('\'', new Image(new File("res"+File.separator+"font"+File.separator+"\'.png")));
-		images.put('.', new Image(new File("res"+File.separator+"font"+File.separator+"..png")));
+		images.put('.', new Image(new File("res"+File.separator+"font"+File.separator+"period.png")));
 		images.put(',', new Image(new File("res"+File.separator+"font"+File.separator+",.png")));
 	}
 	public static Image getCharacterImage(char c) {
-		System.out.println(c);
-		System.out.println(images.get(c));
 		return images.get(c);
 	}
 }

@@ -14,6 +14,7 @@ import dym.rpg.entities.player.Menu;
 import dym.rpg.entities.player.Player;
 import dym.rpg.graphics.Image;
 import dym.rpg.graphics.Sprite;
+import dym.rpg.graphics.staticImages.UIClock;
 import dym.rpg.graphics.staticImages.UIMenu;
 import dym.rpg.graphics.staticImages.UIMenuInventoryButton;
 import dym.rpg.graphics.staticImages.UIMenuPartyButton;
@@ -55,6 +56,7 @@ public class Game extends JFrame {
 	public static UIArrow uiMenuArrow = new UIArrow(); 
 	public static UIXButton uiXButton = new UIXButton(); 
 	public static UITextBox uiTextBox = new UITextBox(); 
+	public static UIClock uiClock = new UIClock(); 
 	//public static TestMusic testMusic;
 	//public static TestSFX testSFX;
 	

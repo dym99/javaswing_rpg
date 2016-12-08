@@ -37,6 +37,7 @@ public class MessageHandler {
 		}
 	
 	}
+	//Move to next letter and animate the "Press X" icon
 	public static void animate() {
 		if (visibleMessage.length()<currentMessage.length()) {animating = true; visibleMessage+=currentMessage.charAt(visibleMessage.length());} else {animating=false;}
 		Game.uiXButton.animate();
@@ -60,7 +61,7 @@ public class MessageHandler {
 				row++;
 			}
 		}
-		if (visibleMessage.length()<currentMessage.length()) {animating = true;} else {animating=false;}
+		if (visibleMessage.length()<currentMessage.length()) {animating = true;Game.uiXButton.resetAnim();} else {animating=false;}
 		if (!animating) Game.uiXButton.drawUI(g, 320-26, 240-26);
 	}
 }
