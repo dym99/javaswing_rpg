@@ -66,10 +66,10 @@ public class Player extends Entity {
 			menu = true;
 			Input.keysDown.remove((Object)KeyEvent.VK_C);
 		}
-		if (Input.keysDown.contains(KeyEvent.VK_P)) {
-			System.err.println("Current music position: "+SoundMixer.music.getFramePosition());
-			Input.keysDown.remove((Object)KeyEvent.VK_P);
-		}
+//		if (Input.keysDown.contains(KeyEvent.VK_P)) {
+//			System.err.println("Current music position: "+SoundMixer.music.getFramePosition());
+//			Input.keysDown.remove((Object)KeyEvent.VK_P);
+//		}
 		//Only continue if player is aligned with grid//
 		if (!(pos.x%16==0 && pos.y%16==0)) return;
 		xspeed=0;
@@ -78,7 +78,7 @@ public class Player extends Entity {
 		if (Input.keysDown.contains(KeyEvent.VK_Z)) {
 			//Test the message box.
 			MessageHandler.addMessage("You have pressed Z, the\nmessage testing keybind.");
-			MessageHandler.addMessage("Whilst this may be obvious,\nthis is just a test.");
+			MessageHandler.addMessage("While this may be obvious,\nthis is just a test.");
 			Input.keysDown.remove((Object)KeyEvent.VK_Z);
 		}
 		if (Input.keysDown.contains(KeyEvent.VK_X)) {

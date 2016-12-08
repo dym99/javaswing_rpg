@@ -26,6 +26,7 @@ import dym.rpg.graphics.staticSprites.SprCharR;
 import dym.rpg.graphics.staticSprites.SprCharU;
 import dym.rpg.graphics.staticSprites.UIArrow;
 import dym.rpg.graphics.staticSprites.UIXButton;
+import dym.rpg.graphics.text.ClockText;
 import dym.rpg.graphics.text.DefaultFont;
 import dym.rpg.physics.Vector2;
 import dym.rpg.scene.SceneManager;
@@ -67,6 +68,7 @@ public class Game extends JFrame {
 		super("Game");
 		SoundMixer.init();
 		DefaultFont.init();
+		ClockText.init();
 		this.setBackground(Color.BLACK);
 		
 		//testMusic = new TestMusic();

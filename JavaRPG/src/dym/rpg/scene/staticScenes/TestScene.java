@@ -118,6 +118,5 @@ public class TestScene extends Scene {
 		///
 		///Entities
 		///
-		entities.add(new TestClick(new Vector2(0,0)));
 	}
 }

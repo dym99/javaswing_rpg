@@ -8,7 +8,7 @@ import java.util.Calendar;
 import javax.swing.JPanel;
 
 import dym.rpg.entities.Entity;
-import dym.rpg.graphics.text.DefaultFont;
+import dym.rpg.graphics.text.ClockText;
 import dym.rpg.scene.SceneManager;
 
 
@@ -65,31 +65,33 @@ public class Display extends JPanel {
 			g.setColor(Color.WHITE);
 		}
 		//Draw clock
-		Game.uiClock.drawUI(g, 0, 0);
-		String ampm="am";
-		if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY)>=12) {
-			ampm="pm";
-		}
-		int hours = Calendar.getInstance().get(Calendar.HOUR);
-		String hourText;
-		if (hours<10) {
-			hourText = "0"+hours;
-		} else {
-			hourText = hours+"";
-		}
-		int minutes = Calendar.getInstance().get(Calendar.MINUTE);
-		String minuteText;
-		if (minutes<10) {
-			minuteText = "0"+minutes;
-		} else {
-			minuteText = minutes+"";
-		}
-		String timeText=hourText+":"+minuteText+" "+ampm;
-		int pos = 0;
-		for (char c:timeText.toUpperCase().toCharArray()) {
-			if (DefaultFont.getCharacterImage(c)!=null)
-				DefaultFont.getCharacterImage(c).drawUI(g, pos*10+5, 2);
-			pos++;
+		if (!SceneManager.currentScene.menuScene) {
+			Game.uiClock.drawUI(g, 0, 0);
+			String ampm="am";
+			if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY)>=12) {
+				ampm="pm";
+			}
+			int hours = Calendar.getInstance().get(Calendar.HOUR);
+			String hourText;
+			if (hours<10) {
+				hourText = "0"+hours;
+			} else {
+				hourText = hours+"";
+			}
+			int minutes = Calendar.getInstance().get(Calendar.MINUTE);
+			String minuteText;
+			if (minutes<10) {
+				minuteText = "0"+minutes;
+			} else {
+				minuteText = minutes+"";
+			}
+			String timeText=hourText+":"+minuteText+" "+ampm;
+			int pos = 0;
+			for (char c:timeText.toUpperCase().toCharArray()) {
+				if (ClockText.getCharacterImage(c)!=null)
+					ClockText.getCharacterImage(c).drawUI(g, pos*6+5, 2);
+				pos++;
+			}
 		}
 		//Draw pop-up menu;
 		if (Game.p.menu) {
