@@ -85,7 +85,7 @@ public class Display extends JPanel {
 			} else {
 				minuteText = minutes+"";
 			}
-			String timeText=hourText+":"+minuteText+" "+ampm;
+			String timeText=hourText+":"+minuteText+ampm;
 			int pos = 0;
 			for (char c:timeText.toUpperCase().toCharArray()) {
 				if (ClockText.getCharacterImage(c)!=null)
