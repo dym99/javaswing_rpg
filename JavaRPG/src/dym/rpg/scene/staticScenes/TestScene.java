@@ -46,37 +46,72 @@ public class TestScene extends Scene {
 		///
 		///Tiles
 		///
-		tileMap.backTiles.add(new Tile(new Vector2(0,0), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(16,0), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(32,0), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(48,0), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(64,0), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(80,0), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(96,0), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(112,0), Tiles.tile_rock));
+		tileMap.backTiles.add(new Tile(new Vector2(0,0), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(16,0), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(32,0), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(48,0), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(64,0), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(80,0), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(96,0), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(112,0), Tiles.tile_grass1));
+		
+		tileMap.backTiles.add(new Tile(new Vector2(0,0), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(16,0), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(32,0), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(48,0), Tiles.tile_lamp_base));
+		tileMap.backTiles.add(new Tile(new Vector2(48,-16), Tiles.tile_lamp_post));
+		tileMap.backTiles.add(new Tile(new Vector2(48,-32), Tiles.tile_lamp));
+		tileMap.backTiles.add(new Tile(new Vector2(64,0), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(80,0), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(96,0), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(112,0), Tiles.tile_boulder_brown));
 
-		tileMap.backTiles.add(new Tile(new Vector2(0,112), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(16,112), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(32,112), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(48,112), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(64,112), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(80,112), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(96,112), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(112,112), Tiles.tile_rock));
 
-		tileMap.backTiles.add(new Tile(new Vector2(0,16), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(0,32), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(0,48), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(0,64), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(0,80), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(0,96), Tiles.tile_rock));
+		tileMap.backTiles.add(new Tile(new Vector2(0,112), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(16,112), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(32,112), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(48,112), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(64,112), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(80,112), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(96,112), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(112,112), Tiles.tile_grass1));
+		
+		tileMap.backTiles.add(new Tile(new Vector2(0,112), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(16,112), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(32,112), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(48,112), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(64,112), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(80,112), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(96,112), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(112,112), Tiles.tile_boulder_brown));
 
-		tileMap.backTiles.add(new Tile(new Vector2(112,16), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(112,32), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(112,48), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(112,64), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(112,80), Tiles.tile_rock));
-		tileMap.backTiles.add(new Tile(new Vector2(112,96), Tiles.tile_rock));
+		tileMap.backTiles.add(new Tile(new Vector2(0,16), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(0,32), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(0,48), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(0,64), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(0,80), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(0,96), Tiles.tile_grass1));
+		
+		tileMap.backTiles.add(new Tile(new Vector2(0,16), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(0,32), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(0,48), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(0,64), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(0,80), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(0,96), Tiles.tile_boulder_brown));
+
+		tileMap.backTiles.add(new Tile(new Vector2(112,16), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(112,32), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(112,48), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(112,64), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(112,80), Tiles.tile_grass1));
+		tileMap.backTiles.add(new Tile(new Vector2(112,96), Tiles.tile_grass1));
+		
+		tileMap.backTiles.add(new Tile(new Vector2(112,16), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(112,32), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(112,48), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(112,64), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(112,80), Tiles.tile_boulder_brown));
+		tileMap.backTiles.add(new Tile(new Vector2(112,96), Tiles.tile_boulder_brown));
 
 		tileMap.backTiles.add(new Tile(new Vector2(16,16), Tiles.tile_grass1));
 		tileMap.backTiles.add(new Tile(new Vector2(32,16), Tiles.tile_grass1));
