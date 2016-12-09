@@ -8,6 +8,7 @@ public class CollisionMap {
 		collisions = new ArrayList<Collision>();
 	}
 	public CollisionType getCollsionAt(int x, int y) {
+		//Returns Collision at position (x,y)
 		CollisionType result = CollisionType.NONE;
 		for (Collision c : collisions) {
 			if (c.x == x&&c.y==y) {

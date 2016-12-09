@@ -21,12 +21,15 @@ public abstract class Entity {
 		this.bbox = bbox;
 	}
 	public void click() {
+		//Calls when the entity's bbox is clicked by the mouse.
 		
 	}
 	public void update() {
+		//Calls every frame.
 		
 	}
 	public void draw(Graphics g) {
+		//Draws to screen.
 		
 	}
 }

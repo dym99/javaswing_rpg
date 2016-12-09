@@ -8,7 +8,9 @@ import java.util.Calendar;
 import javax.swing.JPanel;
 
 import dym.rpg.entities.Entity;
+import dym.rpg.graphics.shading.LightingHandler;
 import dym.rpg.graphics.text.ClockText;
+import dym.rpg.scene.Scene;
 import dym.rpg.scene.SceneManager;
 
 
@@ -58,10 +60,11 @@ public class Display extends JPanel {
 			Game.p.draw(g);
 		
 		
-		
-		if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY)>=18 || Calendar.getInstance().get(Calendar.HOUR_OF_DAY)<6) {
-			g.setColor(new Color(0,0,0,177));
-			g.fillRect(0, 0, this.width, this.height);
+		//Draw Night Shading;
+		if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY)>=18 || Calendar.getInstance().get(Calendar.HOUR_OF_DAY)<6 || SceneManager.currentScene.lighting == Scene.DARK) {
+			//LightingHandler.setTint(new Color(0,0,0,127));
+			LightingHandler.update();
+			LightingHandler.draw(g);
 			g.setColor(Color.WHITE);
 		}
 		//Draw clock

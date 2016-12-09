@@ -14,6 +14,7 @@ import dym.rpg.entities.player.Menu;
 import dym.rpg.entities.player.Player;
 import dym.rpg.graphics.Image;
 import dym.rpg.graphics.Sprite;
+import dym.rpg.graphics.shading.LightingHandler;
 import dym.rpg.graphics.staticImages.UIClock;
 import dym.rpg.graphics.staticImages.UIMenu;
 import dym.rpg.graphics.staticImages.UIMenuInventoryButton;
@@ -69,6 +70,7 @@ public class Game extends JFrame {
 		SoundMixer.init();
 		DefaultFont.init();
 		ClockText.init();
+		LightingHandler.init();
 		this.setBackground(Color.BLACK);
 		
 		//testMusic = new TestMusic();

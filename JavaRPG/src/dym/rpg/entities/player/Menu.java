@@ -11,7 +11,7 @@ import dym.rpg.scene.SceneManager;
 
 public class Menu extends Entity{
 	public static final int selections = 3;
-	public static final Scene[] selectionDestinations = {SceneManager.currentScene, SceneManager.currentScene, SceneManager.settings};
+	public static final Scene[] selectionDestinations = {SceneManager.testScene1, SceneManager.testScene1, SceneManager.settings};
 	private static int arrowlocation; 
 	public Menu() {
 		//Set the starting arrow location;

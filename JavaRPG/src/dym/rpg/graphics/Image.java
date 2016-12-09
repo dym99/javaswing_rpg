@@ -28,8 +28,4 @@ public class Image {
 		g.setColor(Color.WHITE);
 		g.drawImage(img, (int)(Game.d.ScaleCoordinateX(x+0.5)), (int)(Game.d.ScaleCoordinateY(y+0.5)), (int)(Game.d.ScaleCoordinateX(img.getWidth()+0.5)), (int)(Game.d.ScaleCoordinateY(img.getHeight()+0.5)) ,null);
 	}
-	public void drawUISmall(Graphics g, int x, int y) {
-		g.setColor(Color.WHITE);
-		g.drawImage(img, (int)(Game.d.ScaleCoordinateX(x+0.5)), (int)(Game.d.ScaleCoordinateY(y+0.5)), (int)(Game.d.ScaleCoordinateX(img.getWidth()+0.5)/2), (int)(Game.d.ScaleCoordinateY(img.getHeight()+0.5)/2) ,null);
-	}
 }

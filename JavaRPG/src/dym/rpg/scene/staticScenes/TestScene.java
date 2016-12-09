@@ -1,6 +1,6 @@
 package dym.rpg.scene.staticScenes;
 
-import dym.rpg.entities.TestClick;
+import dym.rpg.graphics.shading.Light;
 import dym.rpg.physics.Collision;
 import dym.rpg.physics.CollisionMap.CollisionType;
 import dym.rpg.physics.Vector2;
@@ -10,6 +10,7 @@ import dym.rpg.tile.Tiles;
 
 public class TestScene extends Scene {
 	public TestScene() {
+		super(false,DARK);
 		///
 		///collisions
 		///
@@ -153,5 +154,12 @@ public class TestScene extends Scene {
 		///
 		///Entities
 		///
+		
+		
+		
+		///
+		///Lights
+		///
+		lights.add(new Light(new Vector2(48,-32),32.0F));
 	}
 }
