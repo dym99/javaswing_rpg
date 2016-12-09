@@ -20,7 +20,7 @@ public class LightingHandler {
 	}
 	public static void update() {
 		for (Pixel p : pixels) {
-			int a=230;
+			int a=tint.getAlpha();
 			for (Light l : SceneManager.currentScene.lights) {
 				a-=l.getStrengthAtPoint(p.pos);
 			}
@@ -29,8 +29,16 @@ public class LightingHandler {
 			p.c = new Color(tint.getRed(),tint.getGreen(),tint.getBlue(),a);
 		}
 	}
-	public static void setTint(Color tint) {
-		
+	public static void updateNoLight() {
+		for (Pixel p : pixels) {
+			int a=tint.getAlpha();
+			if (a<0)a=0;
+			if (a>255) a=255;
+			p.c = new Color(tint.getRed(),tint.getGreen(),tint.getBlue(),a);
+		}
+	}
+	public static void setTint(Color newTint) {
+		tint=newTint;
 	}
 	public static void draw(Graphics g) {
 		for (Pixel p : pixels) {

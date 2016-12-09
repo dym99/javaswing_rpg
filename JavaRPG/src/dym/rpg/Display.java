@@ -60,13 +60,20 @@ public class Display extends JPanel {
 			Game.p.draw(g);
 		
 		
-		//Draw Night Shading;
-		if (Calendar.getInstance().get(Calendar.HOUR_OF_DAY)>=18 || Calendar.getInstance().get(Calendar.HOUR_OF_DAY)<6 || SceneManager.currentScene.lighting == Scene.DARK) {
-			LightingHandler.setTint(new Color(0,0,0,255));
-			LightingHandler.update();
-			LightingHandler.draw(g);
-			g.setColor(Color.WHITE);
+		//Draw Dawn/Evening/Night Shading;
+		int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+		if (!(SceneManager.currentScene.lighting==Scene.LIGHT)) {
+			if (hour<6 || hour>20 || SceneManager.currentScene.lighting==Scene.DARK) {
+				LightingHandler.setTint(new Color(0,0,0,230));
+				LightingHandler.update();
+				LightingHandler.draw(g);
+			} else if (hour<8||hour>=18) {
+				LightingHandler.setTint(new Color(20,0,0,127));
+				LightingHandler.update();
+				LightingHandler.draw(g);
+			}
 		}
+		g.setColor(Color.WHITE);
 		//Draw clock
 		if (!SceneManager.currentScene.menuScene) {
 			Game.uiClock.drawUI(g, 0, 0);
