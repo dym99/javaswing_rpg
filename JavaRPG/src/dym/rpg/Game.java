@@ -14,6 +14,7 @@ import dym.rpg.entities.player.Menu;
 import dym.rpg.entities.player.Player;
 import dym.rpg.graphics.Image;
 import dym.rpg.graphics.Sprite;
+import dym.rpg.graphics.shading.Light;
 import dym.rpg.graphics.shading.LightingHandler;
 import dym.rpg.graphics.staticImages.UIClock;
 import dym.rpg.graphics.staticImages.UIMenu;
