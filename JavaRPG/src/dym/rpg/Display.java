@@ -62,7 +62,7 @@ public class Display extends JPanel {
 		
 		//Draw Dawn/Evening/Night Shading;
 		int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-		if (!(SceneManager.currentScene.lighting==Scene.LIGHT)) {
+		if (!(SceneManager.currentScene.lighting==Scene.LIGHT)&&!SceneManager.currentScene.menuScene) {
 			if (hour<6 || hour>20 || SceneManager.currentScene.lighting==Scene.DARK) {
 				LightingHandler.setTint(new Color(0,0,0,230));
 				LightingHandler.update();

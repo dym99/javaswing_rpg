@@ -160,6 +160,6 @@ public class TestScene extends Scene {
 		///
 		///Lights
 		///
-		lights.add(new Light(new Vector2(48,-32),32.0F));
+		lights.add(new Light(new Vector2(48,-32),40.0F));
 	}
 }

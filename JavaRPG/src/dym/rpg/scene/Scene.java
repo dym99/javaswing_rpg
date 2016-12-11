@@ -1,5 +1,6 @@
 package dym.rpg.scene;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import dym.rpg.entities.Entity;
@@ -22,6 +23,15 @@ public abstract class Scene {
 		collisionMap = new CollisionMap();
 		entities = new ArrayList<Entity>();
 		lights = new ArrayList<Light>();
+	}
+	public Scene(File f) {
+		menuScene = false;
+		tileMap = new TileMap();
+		collisionMap = new CollisionMap();
+		entities = new ArrayList<Entity>();
+		lights = new ArrayList<Light>();
+		//TODO: LOAD SCENE DATA FROM FILE
+		
 	}
 	public Scene(boolean menuScene) {
 		this();
